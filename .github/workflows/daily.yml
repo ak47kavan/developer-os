@@ -21,9 +21,10 @@ jobs:
 
       - name: Commit changes
         run: |
-          git config user.name "ak47kavan"
-          git config user.email "124173523+ak47kavan@users.noreply.github.com"
+          git config --global user.name "ak47kavan"
+          git config  --global user.email "124173523+ak47kavan@users.noreply.github.com"
 
           git add .
-          git commit -m "Daily Developer OS Update" || exit 0
+	  git diff --cached --quiet && exit 0
+          git commit -m "Daily Developer OS Update"
           git push
